@@ -1,0 +1,62 @@
+var x=80
+var y=100
+function setup() {
+  createCanvas(400, 400);
+}
+var opcao=1
+var tela=0
+function draw(){
+  background(220);
+  for(i=0 ; i<20 ; i++){
+    for(j=0; j<25; j++){
+    stroke(i*5,255-j*10,200)
+    line(i*25,j*25,i,j)
+    }
+  }
+  if(tela==0)
+    menu();
+  if(tela==1)
+    tela1();
+  if(tela==2)
+    tela2()
+  if(tela==3)
+    tela3()
+}
+function menu() {
+  rect(x,y,240,45)
+  textSize(40)
+  text('Dennis DJ',120,50)
+  textSize(34)
+  text('Jogar',90,130)
+  text('Configurações',90,230)
+  text('Creditos',90,330)
+}
+function tela1(){
+  textSize(40)
+  text('Fase 1',120,50)
+}
+function tela2(){
+  textSize(40)
+  text('Configurações',90,50)
+}
+function tela3(){
+  textSize(40)
+  text('Creditos',120,50)
+}
+function keyPressed(){
+  if(key=='ArrowUp' && y>130){
+    y=y-100
+    opcao=opcao-1
+  }
+  if(key=='ArrowDown' && y<300){
+    y=y+100
+    opcao=opcao+1
+  }
+  if(key=='Enter'){
+    tela=opcao
+  }
+  if(key=='Escape'){
+    tela=0
+  }
+    
+}
